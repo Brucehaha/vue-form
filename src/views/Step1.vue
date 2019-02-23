@@ -3,24 +3,23 @@
     <el-form ref="form" :model="form" label-width="120px" :rules="rules" label-position="top">
       <el-form-item prop="storeType" label="Store Type">
         <el-select v-model="form.storeType" style="width: 100%">
-          <el-option v-for="store in stores"
-                     :label="store"
-                     :value="store">
-
+          <el-option  v-for="store in stores"
+                      :label="store"
+                      :value="store"
+                      :key="store">
           </el-option>
         </el-select>
       </el-form-item>
-
       <el-form-item prop="provideDetails" label="Provide details" v-if="form.storeType === 'Metro'">
         <el-input v-model="form.provideDetails"></el-input>
       </el-form-item>
 
       <el-form-item prop="userLookup" label="User lookup">
-        <el-autocomplete style="width: 100%"
-                         v-model="form.userLookup"
-                         :fetch-suggestions="querySearch"
-                         @select="onSelect">
-
+        <el-autocomplete
+          style="width: 100%"
+          v-model="form.userLookup"
+          :fetch-suggestions="querySearch"
+          @select="onSelect">
         </el-autocomplete>
       </el-form-item>
 
@@ -36,9 +35,11 @@
         <!-- <el-button type="primary" @click="back">Back</el-button> -->
         <el-button type="primary" @click="next">Next</el-button>
       </el-form-item>
+
     </el-form>
   </div>
 </template>
+
 
 
 <script>
@@ -58,6 +59,8 @@
       }
     },
     mounted() {
+      this.getUsers()
+
     },
     methods: {
 
