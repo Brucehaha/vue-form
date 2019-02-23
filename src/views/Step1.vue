@@ -65,6 +65,16 @@
     methods: {
 
       next() {
+        this.$refs.form.validate((valid) => {
+          if (valid) {
+            sessionStorage.setItem('form1', JSON.stringify(this.form))
+            this.$router.push({
+              path: '/step2',
+            })
+          } else {
+            return false;
+          }
+        });
 
       },
       onSelect(item) {
