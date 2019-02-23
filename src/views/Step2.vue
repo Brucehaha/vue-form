@@ -35,6 +35,8 @@
   </div>
 </template>
 <script>
+  import axios from 'axios';
+
   export default {
     data() {
       return {
@@ -67,17 +69,24 @@
       submit() {
         this.$refs.form.validate((valid) => {
           if (valid) {
-            const form1 = JSON.parse(sessionStorage.getItem('form1')) || {}
-            const form2 = this.form
-            fetch('http://webhook.site/b695f74a-09eb-46ee-ae3b-c97972e41564', {
-              method: 'post',
+            const form1 = JSON.parse(sessionStorage.getItem('form1')) || {};
+            const form2 = this.form;
+            axios.post('http://webhook.site/4907b80a-0206-4b55-8216-d5b77922714a', {
               body: JSON.stringify({ ...form1, ...form2 }),
-            })
+            }).then((response) => {
+              if (response.status == 200) {
+                alert("Submit Sucessfully");
+              }
+            }).catch(e => {
+              console.log('error'+e);
+
+            });
+
           } else {
             return false;
           }
         });
-      },g
+      },
     }
   }
 </script>
