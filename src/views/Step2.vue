@@ -48,9 +48,21 @@
       }
     },
     mounted() {
+      this.form = JSON.parse(sessionStorage.getItem('form2')) || {}
     },
     methods: {
       back() {
+        this.$refs.form.validate((valid) => {
+          if (valid) {
+            sessionStorage.setItem('form2', JSON.stringify(this.form))
+            this.$router.push({
+              path: '/',
+            })
+          } else {
+            return false;
+          }
+        });
+
       },
       submit() {
       },
