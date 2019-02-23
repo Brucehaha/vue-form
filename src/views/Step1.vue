@@ -59,6 +59,7 @@
       }
     },
     mounted() {
+      this.form = JSON.parse(sessionStorage.getItem('form1')) || {}
       this.getUsers()
 
     },
