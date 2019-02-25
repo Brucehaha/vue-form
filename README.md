@@ -1,7 +1,14 @@
 # forms-vue
 
 > vue form projet combined with Element UI components
-> for more details please check [Element UI](https://element.eleme.io/#/en-US/component/i18n)
+
+## Description
+# Project router to create two pages with Step1.vue and Step2.vue, please find in router/index.js
+# Project globally using Element UI form components, configuration, please find in main.js
+# Project using storageSession to store the form data globally, so it will not lose after click next or go back.
+# Project using play with both fetch and axios to fetch and post data separately.
+# for more details please check [Element UI](https://element.eleme.io/#/en-US/component/i18n)
+
 
 ## Build Setup
 
