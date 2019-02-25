@@ -1,6 +1,7 @@
 # forms-vue
 
-> A Vue.js project
+> vue form projet combined with Element UI components
+> for more details please check [Element UI](https://element.eleme.io/#/en-US/component/i18n)
 
 ## Build Setup
 
